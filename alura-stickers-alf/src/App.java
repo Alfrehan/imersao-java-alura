@@ -12,8 +12,8 @@ public class App {
         // String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java/api/TopMovies.json";
         // ExtratorDeConteudo extrator = new ExtratorDeConteudoDoIMDB();
 
-        // String url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2022-06-12&end_date=2022-06-14";
-        String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java/api/NASA-APOD.json";
+        String url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2022-06-12&end_date=2022-06-14";
+        //String url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
         ExtratorDeConteudo extrator = new ExtratorDeConteudoDaNasa();
 
         var http = new ClienteHttp();
@@ -29,7 +29,7 @@ public class App {
             Conteudo conteudo = conteudos.get(i);
 
             InputStream inputStream = new URL(conteudo.getUrlImagem()).openStream();
-            String nomeArquivo = "saida/" + conteudo.getTitulo() + ".png";
+            String nomeArquivo = "saida" + conteudo.getTitulo() + ".png";
 
             geradora.cria(inputStream, nomeArquivo);
 
